@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<script type="text/javascript">
+	var l = function() {
+		var css = [
+			"http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300",
+			"css/style.css",
+			"css/style-parallax.css"
+			];
+		var js = ["script/default.js"];
+		var count = 0;
+
+		function complete() {
+			if(count==(css.length + js.length)) {
+				document.getElementById("loading").style.display = "none";
+				document.getElementById("page").style.display = "block";
+			}
+		}
+		
+		for(var i in css) {
+			var c = document.createElement("link"); c.href = css[i]; c.type = "text/css"; c.rel = "stylesheet"; document.head.appendChild(c);
+			count++; complete();
+		}
+		
+		for(var i in js) {
+			var j = document.createElement("script"); j.src=js[i]; document.head.appendChild(j);
+			count++; complete();
+		}
+	}
+
+	var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+			  webkitRequestAnimationFrame || msRequestAnimationFrame;
+	if (raf) raf(l);
+	else window.addEventListener('load', l);
+	</script>
+	<style>
+	#page {
+		display:none;
+	}
+	#loading {
+		font-family:Arial, Verdana, Tahoma;
+		font-size:1em;
+	}
+	</style>
+	<title>Mundal Software</title>
+</head>
+<body>
+	<div id="loading">
+		Loading...
+	</div>
+
+	<div id="page">
+	  <div id="header">
+		<div class="wrapper">
+		  <h1>Mundal Software</h1>
+
+		  <div id="menu">
+			<a href="#">Home</a>
+			<a href="#">About</a>
+		  </div>
+		</div>
+	  </div>
+
+	  <div class="parallax">
+		<div id="splash" class="group">
+		  <div class="layer base">
+			<div class="table">
+			  <div class="table-cell">
+				<h2>Innovative, modern web!</h2>
+			  </div>
+			</div>
+		  </div>
+
+		  <div class="layer deep"></div>
+		</div>
+
+		<div id="showcase1" class="group">
+		  <div class="layer fore">
+			#showcase1 fore
+		  </div>
+		  <div class="layer base">
+			#showcase1 background<br />
+			#showcase1 background<br />
+			#showcase1 background<br />
+			#showcase1 background<br />
+			#showcase1 background<br />
+			#showcase1 background<br />
+			#showcase1 background<br />;5u	#showcase1 background<br />
+			#showcase1 background<br />
+			#showcase1 background<br />
+			#showcase1 background<br />
+			#showcase1 background<br />
+			#showcase1 background<br />
+			#showcase1 background<br />
+			#showcase1 background<br />
+			#showcase1 background<br />
+			#showcase1 background<br />
+			#showcase1 background<br />
+
+		  </div>
+		</div>
+
+		<div id="showcase2" class="group">
+		  <div class="layer base">
+			#showcase2 base
+		  </div>
+		  
+		  <div class="layer back">
+		  
+		  </div>
+		</div>
+	  </div>
+  </div>
+</body>
+</html>
