@@ -1,0 +1,120 @@
+@media (max-width:1280px) {
+    body {
+        font-size:0.8em;
+    }
+    
+    #header {
+        overflow:hidden;
+    }
+    
+    #header h1 {
+        display:block;
+        text-align:center;
+        float:none;
+    }
+    
+    #menu:before {
+        display:block;
+        text-align:center;
+        content:"Menu";
+        font-size:1.8em;
+        background:#FAFAFA;
+    }
+    
+    #menu {
+        float:none;
+        display:block;
+        background:#FFF;
+        margin:0;
+        max-height:35px;
+        transition:max-height 0.5s ease-out;
+    }
+    
+    #menu:active, #menu:hover {
+        max-height:100vh;
+    }
+    
+    nav a {
+        display:block;
+        clear:both;
+        text-align:center;
+        float:none;
+    }
+    
+    .parallax {
+        overflow-y:scroll;
+        margin-top:30px;
+    }
+    
+    #splash,#splash .layer {
+        
+    }
+    
+    #splash h2 {
+        font-size:1.3em;
+    }
+    
+    #scroll_info {
+        display:none;
+    }
+    
+    #showcase1 {
+        height:640px;
+    }
+    
+    #showcase1 img {
+        display:none;
+    }
+    
+    #showcase1 .animationpart, #showcase1 .animationpart p, #showcase1-2 .animationpart, #showcase1-2 .animationpart p {
+        display:block;
+        float:none !important;
+        clear:both !important;
+        padding:5px !important;
+        margin:0 !important;
+    }
+    
+    #showcase1 .fore {
+        padding-top:5px;
+        height:auto;
+    }
+    
+    #showcase1 .base {
+        background:#FF6600;
+        height:100%;
+    }
+    
+    #showcase1-2 img {
+        display:none;
+    }
+    
+    #showcase1-2 .fore {
+        padding-top:5px;
+    }
+    
+    #contact h2 {
+        margin-top:5px;
+    }
+    
+    #contact input, #contact textarea, #contact select {
+        min-width:200px !important;
+        width:200px !important;
+    }
+    #contact-form textarea {
+        width:270px !important;
+    }
+    #contact-form select {
+        width:215px !important;
+    }
+    #contact img {
+        height:45px;
+        width:70px;
+    }
+    
+    #contact .back {
+        height:750px;
+    }
+    .github-fork-ribbon-wrapper {
+        display:none;
+    }
+}

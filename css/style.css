@@ -23,6 +23,9 @@ h2 {
 .table-cell {
     display:table-cell;
 }
+.table-row {
+    display:table-row;
+}
 
 .b {
     font-weight:bold;
@@ -125,6 +128,27 @@ h2 {
     background-position:50% 50%;
 }
 
+#scroll_info {
+    position:relative;
+    top:20vh;
+}
+#scroll_info:after {
+    /*content:"&#8681;";*/
+    content:"⇩";
+    clear:left;
+    display:block;
+    position:relative;
+    animation-name:bounce;
+    animation-duration:4s;
+    animation-iteration-count: infinite;
+    animation-delay:3s;
+}
+@keyframes bounce {
+    0% { top:0; }
+    45% { top:0; }
+    50% { top:30px; }
+    70% { top:0; }
+}
 
 /************** SPLASH END **********/
 
@@ -279,18 +303,56 @@ h2 {
     font-size:1.4em;
 }
 
-#showcase2 {
+#contact {
 	z-index:2;
 }
 
+#contact .back {
+	background:#BCE3FA;
+}
+#contact-form {
+    font-size:1.5em;
+    width:800px;
+    height:550px;
+}
 
-#showcase2 .back {
-	background:#00F;
+#contact-form select,
+#contact-form textarea,
+#contact-form input[type^="text"],
+#contact-form input[type^="password"],
+#contact-form input[type^="submit"],
+#contact-form input[type^="email"] {
+    border:1px solid #AAA;
+    border-radius:5px;
+    padding:5px;
+    margin:5px;
+    font-size:1em;
+    min-width:550px;
+}
+
+#contact-form input[type^="submit"] {
+    width:650px;
+}
+
+#contact-form textarea {
+    width:640px;
+    height:200px;
+}
+
+#contact-form select {
+    width:560px;
+}
+#contact h2 {
+    margin-top:100px;
+}
+#contact h2,#contact p {
+    padding:5px 10px;
+    text-shadow:0 0 15px #555;
 }
 .group {
     /*transform:rotateY(30deg) translateZ(-100px) translateX(600px);*/
 
 }
 .github-fork-ribbon-wrapper {
-    margin-top:73px;
+    top:73px !important;
 }

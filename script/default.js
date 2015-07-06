@@ -1,28 +1,3 @@
-var callbacks = [];
-function l() {
-	var css = ["http:\/\/fonts.googleapis.com/css?family=Open+Sans+Condensed:300","css/style.css","css/style-parallax.css"];
-	// DO NOT LOAD THIS FILE (default.js) IN THE ARRAY! MEGASUPERRECURSIONMONSTER!
-	var js = ["script/parallax.js","http:\/\/code.jquery.com/jquery-2.1.4.min.js"];
-	var count = 0;
-
-	function complete() {
-		if((++count)===(css.length + js.length)) {
-			callbacks.forEach(function(i) { i.call() });
-		}
-	}
-	css.forEach(function(i) { {var c = document.createElement("link"); c.href = i; c.type = "text/css"; c.rel = "stylesheet"; document.head.appendChild(c); c.onload = complete; } });
-	js.forEach(function(i) { {var j = document.createElement("script"); j.src=i; document.head.appendChild(j); j.onload = complete; } }); 
-}
-
-var raf = requestAnimationFrame || mozRequestAnimationFrame ||
-		  webkitRequestAnimationFrame || msRequestAnimationFrame;
-if (raf) { raf(l);}
-else {window.addEventListener('load', l);};
-
-function addLoadedCallback(callback) {
-	callbacks.push(callback);
-}
-
 addLoadedCallback(function() {
     function loadComplete() {
         if(thingstoload == thingsloaded) {
@@ -61,4 +36,47 @@ addLoadedCallback(function() {
     });
     
     loadComplete();
+    
+    $("#the-contact-form").on("submit", function(e) {
+        var data = new Object;
+        var valid = true;
+        $("#the-contact-form input[type!=submit], #the-contact-form select, #the-contact-form textarea").each(function(elem) {
+            if(!$(this).val()) {
+                $(this).css("border-color", "#F00");
+                $(this).parent().append($("<div></div>")
+                    .addClass("error-message")
+                    .html($(this).attr("data-error"))
+                    .css({
+                        "font-size":"16px",
+                        position:"absolute",
+                        top:$(this).offset().top + 3 + "px",
+                        left:$(this).offset().left + $(this).width() + 15 + "px",
+                        padding:"3px",
+                        background:"#F00",
+                        color:"#FFF"
+                    }));
+                $(this).on("keydown", function() {
+                    $(this).parent().find(".error-message").remove();
+                });
+                valid = false;
+                return;
+            }
+            data[$(this).attr("name")] = $(this).val()
+        });
+        
+        if(valid) {
+            $.ajax({
+                url:"contact.php",
+                method:"POST",
+                data: data
+            }).done(function(data) {
+                console.log(data);
+                if(data.status == 200) {
+                    $("#contact-form").html("<p style='text-align:center'>Thank you for your message</p>")
+                }
+            });
+        }
+        return false;
+        e.preventDefault();
+    })
 });
