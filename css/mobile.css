@@ -117,4 +117,8 @@
     .github-fork-ribbon-wrapper {
         display:none;
     }
+    
+    #social-media-links {
+        width:80vw;
+    }
 }
