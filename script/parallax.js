@@ -1,6 +1,7 @@
 addLoadedCallback(function() {
     var pos = 0;
     var motion = false;
+    var url = location.href;
     
     function findPos(obj) {
         var curleft = curtop = 0;
@@ -18,13 +19,12 @@ addLoadedCallback(function() {
     $(anchors).each(function(i) {
         anchors[i].realpos = findPos(this);
     });
-    console.log(anchors);
     
     function anchorByPath(path) {
         for(var i=0; i<anchors.length; i++) {
-            if("/slide-"+$(anchors[i]).attr("data-link") == path) {
+            if("/slide-"+$(anchors[i]).attr("data-link") == path || path.indexOf("/slide-"+$(anchors[i]).attr("data-link")) > -1) {
                 return i;
-            }                
+            }
         }
         return 0;
     }
@@ -47,14 +47,10 @@ addLoadedCallback(function() {
     $('a[href*=#]:not([href=#]), .anchor-link').click(function(event) {
         if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
             var pos = anchorByHash(this.hash);
-            console.log(this.hash);
-            
             scrollToIndex(pos);
             event.preventDefault();
             return false;
         } else if($(this).hasClass("anchor-link")) {
-            console.log(this.target);
-            
             scrollToIndex(anchorByHash(this.target));
             event.preventDefault();
             return false;
@@ -64,13 +60,18 @@ addLoadedCallback(function() {
 	$(".parallax").bind("mousewheel", function(e, delta) {
         if($(window).width() < 1280) {
             $(this).css("overflow-y", "scroll");
-            console.log("mobile?");
             return true;
         }
             
 		if(!motion) {
-			delta = delta || e.originalEvent.detail / 3 || e.originalEvent.deltaY / 100;		
-			pos += delta;
+			delta = delta || e.originalEvent.detail / 3 || e.originalEvent.deltaY / 100;
+            
+            if(delta > 0) {
+                pos += 1;
+            } else {
+                pos -=1
+            }
+			// pos += delta;
 			
 			if(pos < 0) {
 				pos = 0;
@@ -86,15 +87,16 @@ addLoadedCallback(function() {
     function scrollToIndex(index, skiptrack) {
         if(!motion) {
             motion = true;
-            pos = index;
+            pos = Math.round(index);
             
             $(".parallax").stop().animate({
                 scrollTop:anchors[pos].realpos[1],
                 scrollLeft:anchors[pos].realpos[0]
             }, 1000, function() {
                 motion = false;
+                
                 if(!skiptrack)
-                    window.history.pushState("", "", '/slide-' + $(anchors[pos]).attr("data-link"));
+                    window.history.pushState("", "", url.replace(/slide.*$/, 'slide-' + $(anchors[pos]).attr("data-link")));
                 
                 // Let google analytics know about the navigation
                 if(typeof ga != "undefined")
@@ -105,6 +107,5 @@ addLoadedCallback(function() {
     
     $(window).on("popstate", function(e) {
         scrollToIndex(anchorByPath(location.pathname), true);
-        console.log(e);
     });
 });

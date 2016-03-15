@@ -356,3 +356,102 @@ h2 {
 .github-fork-ribbon-wrapper {
     top:73px !important;
 }
+#social-media-links {
+    width:485px;
+}
+
+@media (max-width:1366px) {
+    body {
+        font-size:0.7em;
+    }
+    
+    .normalize-width {
+        width:95vw;
+    }
+    
+    #showcase1 .animationpart.part1 {
+        width:400px
+    }
+    #showcase1 .animationpart.part2 p {
+        max-width:380px
+    }
+    #showcase1-2 .animationpart.part5 {
+        width:auto;
+        float:left;
+    }
+    #showcase1-2 .animationpart.part5 p {
+        float:left;
+        width:350px;
+        margin-top:20px;
+    }
+    #showcase1-2 .animationpart.part5 img {
+        margin-right:0;
+        height:150px
+    }
+    #showcase1-2 .animationpart.part6 {
+        width:auto;
+    }
+    #showcase1-2 .animationpart.part6 img {
+        height:150px;
+    }
+    #showcase1-2 .animationpart.part6 p {
+        width:350px;
+        margin-top:25px;
+    }
+    #showcase1-2 .animationpart.part7 {
+        width:auto;
+    }
+    #showcase1-2 .animationpart.part7 p {
+        width:350px;
+    }
+    #showcase1-2 .animationpart.part8 p {
+        width:350px;
+    }
+    .showcase1-2-bottom {
+        margin-top:-80px;
+    }
+    .animationpart img {
+        transform:scale(.7);
+    }
+    .github-fork-ribbon-wrapper {
+        top:61px !important;
+    }
+    #contact h2 {
+        margin-top:60px;
+    }
+    #contact-form {
+        float:left;
+    }
+    #contact-form form {
+        margin:0 50px;
+    }
+    
+    #social-media-links {
+        float:right;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
