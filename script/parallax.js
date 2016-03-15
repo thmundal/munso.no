@@ -95,8 +95,14 @@ addLoadedCallback(function() {
             }, 1000, function() {
                 motion = false;
                 
+                if(url.indexOf("slide-") > -1) {
+                    url = url.replace(/slide.*$/, 'slide-' + $(anchors[pos]).attr("data-link"));
+                } else {
+                    url = 'slide-' + $(anchors[pos]).attr("data-link");
+                }
+                
                 if(!skiptrack)
-                    window.history.pushState("", "", url.replace(/slide.*$/, 'slide-' + $(anchors[pos]).attr("data-link")));
+                    window.history.pushState("", "", url);
                 
                 // Let google analytics know about the navigation
                 if(typeof ga != "undefined")
