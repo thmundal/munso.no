@@ -227,11 +227,11 @@ h2 {
 }
 #showcase1-2 .animationpart.part5 {
     float:left;
-    width:700px;
+    width:50%;
 }
 #showcase1-2 .animationpart.part5 p {
     float:right;
-    width:400px;
+    width:55%;
     margin-top:50px;
 }
 #showcase1-2 .animationpart.part5 img {
@@ -239,42 +239,44 @@ h2 {
     margin-right:20px;
 }
 
+#showcase1-2 .animationpart.part6 {
+    float:right;
+    width:50%;
+}
 #showcase1-2 .animationpart.part6 img {
     float:right;
 }
 #showcase1-2 .animationpart.part6 p {
     float:right;
-    width:450px;
+    width:55%;
     margin-top:90px;
     margin-right:10px;
-}
-#showcase1-2 .animationpart.part6 {
-    float:right;
-    width:710px;
 }
 #showcase1-2 .animationpart.part7 img {
     float:left;
 }
 #showcase1-2 .animationpart.part7 p {
     float:left;
-    width:450px;
+    width:55%;
     margin-top:50px;
 }
 #showcase1-2 .animationpart.part7 {
     clear:left;
     float:left;
+    width:50%;
 }
 #showcase1-2 .animationpart.part8 img {
     float:right;
 }
 #showcase1-2 .animationpart.part8 p {
     float:right;
-    width:500px;
+    width:55%;
     margin-top:70px;
 }
 #showcase1-2 .animationpart.part8 {
     float:right;
     clear:right;
+    width:50%;
 }
 
 #showcase1-2 .base {
@@ -286,8 +288,9 @@ h2 {
     margin:10px;
 }
 .showcase1-2-bottom {
-    margin-top:100px;
+    /* margin-top:100px; */
     font-size:3em;
+    position:relative;
 }
 
 .animationpart h4 {
@@ -358,6 +361,12 @@ h2 {
 }
 #social-media-links {
     width:485px;
+}
+#fb-like {
+    width:49px;
+    height:22px;
+    overflow:hidden;
+    margin:0 15px;
 }
 
 @media (max-width:1366px) {
@@ -431,7 +440,11 @@ h2 {
     }
 }
 
-
+@media (height: 80vh) {
+    body {
+        display:none;
+    }
+}
 
 
 

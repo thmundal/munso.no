@@ -72,6 +72,8 @@
         clear:both !important;
         padding:5px !important;
         margin:0 !important;
+        width:90%;
+        width:90vw;
     }
     
     #showcase1 .fore {
@@ -87,7 +89,12 @@
     #showcase1-2 img {
         display:none;
     }
-    
+    #showcase1-2 {
+        height:650px;
+    }
+    #showcase1-2 .base , #showcase1-2 .fore {
+        height:100%
+    }
     #showcase1-2 .fore {
         padding-top:5px;
     }
@@ -120,5 +127,10 @@
     
     #social-media-links {
         width:80vw;
+    }
+    #fb-like {
+        margin:0px auto;
+        display:block;
+        padding:5px;
     }
 }

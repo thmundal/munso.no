@@ -57,6 +57,12 @@ addLoadedCallback(function() {
         }
     });
     
+    $(".parallax").bind("scroll", function(e) {
+        if(is_mobile) {
+            window.scrollTo(0, 1);
+        }
+    });
+    
 	$(".parallax").bind("mousewheel", function(e, delta) {
         if($(window).width() < 1280) {
             $(this).css("overflow-y", "scroll");

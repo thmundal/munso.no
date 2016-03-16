@@ -1,8 +1,29 @@
 addLoadedCallback(function() {
+    var height = document.body.clientHeight,
+        width = document.body.clientWidth;
+    
+    is_mobile = (width < 1280);
+        
+    
+    $(window).bind("resize", function(event) {
+        height = document.body.clientHeight;
+        width = document.body.clientWidth;
+        is_mobile = (width < 1280);
+    });
+    
     function loadComplete() {
         if(thingstoload == thingsloaded) {
             document.getElementById("loading").style.display = "none";
-        }        
+        }
+    }    
+    
+    if(is_mobile) {
+        adjustToMobile();
+    }
+    
+    function adjustToMobile() {
+        console.log("Probably a mobile or tablet, adjust accordingly");
+        // document.body.requestFullScreen();
     }
     
     // Load layer images
@@ -78,5 +99,22 @@ addLoadedCallback(function() {
         }
         return false;
         e.preventDefault();
-    })
+    });
+    
+    $("#fb-like").attr({
+        "class":"fb-like",
+        "data-href":"https://developers.facebook.com/docs/plugins/",
+        "data-layout":"button",
+        "data-action":"like",
+        "data-show-faces":"false",
+        "data-share":"false"
+    }).css("z-index", "50000");
+    
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=272097879492470";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
 });
